@@ -139,8 +139,14 @@ angular.module('clipr.clipped', ['ui.router', 'ui.bootstrap', 'ngAside'])
 }]);
 
 
+<<<<<<< d5f5ff196a959ba8a49a591204d57bf62f4e9378
 var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item) {
   $scope.collections = Clips.clips.collections
+=======
+var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, Notes, $window) {
+
+  $scope.collections= Clips.clips.collections;
+>>>>>>> [feat] Clip can be deleted with trashcan
   $scope.item = item.clip
   // $scope.notes = Notes.notesObj;
 
