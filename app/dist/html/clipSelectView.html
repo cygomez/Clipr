@@ -1,5 +1,8 @@
+<<<<<<< c655ed6bc1dc61b33c779960cdc3e7c6ce2a8846
 <<<<<<< b01e68e7de1535db696d998826bb0443e4e07a03
 =======
+=======
+>>>>>>> [fix]: store default suggestions for each clipNode
 <div id="modal">
     <div class="modal-header {{item.category}}">
         <div id="modalImg" style="background-image: url('{{item.imgUrl}}')"></div>
@@ -17,7 +20,7 @@
                     <li id="dropdown" ng-click="changeCategory('Technology', item)">Technology</li>
                     <li id="dropdown" ng-click="changeCategory('News', item)">News</li>
                     <li id="dropdown" ng-click="changeCategory('Entertainment', item)">Entertainment</li>
-                    <li id="dropdown" ng-click="changeCategory('Food', item)">Food</li>
+                    <li id="dropdown" ng-click="chan    geCategory('Food', item)">Food</li>
                     <li id="dropdown" ng-click="changeCategory('Sports', item)">Sports</li>
                     <li id="dropdown" ng-click="changeCategory('Travel', item)">Travel</li>
                     <li id="dropdown" ng-click="changeCategory('Business', item)">Business</li>
@@ -33,6 +36,7 @@
                     <li id="dropdown" ng-click="addToCollection('collection.name', clip)">{{list.name}}</li>
                 </ul>
             </div>
+<<<<<<< c655ed6bc1dc61b33c779960cdc3e7c6ce2a8846
 <<<<<<< 193c43da59b4bb5a2fd11c06f4c7e22e2825ebcc
             + Collection <span class="caret"></span>
             </button>
@@ -62,3 +66,11 @@
         </div>
     </div>
 >>>>>>> [fix]: move social buttons into category space
+=======
+        </div>
+        <div id="suggestions">
+            <ul ng-repeat="suggestion in item.suggestions">
+                <a id="suggestion" href="{{suggestion.suggestionUrl}}"> {{suggestion.suggestionTitle}}</a>
+        </div>
+    </div>
+>>>>>>> [fix]: store default suggestions for each clipNode
