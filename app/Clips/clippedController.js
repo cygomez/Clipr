@@ -71,6 +71,7 @@ angular.module('clipr.clipped', ['ui.router', 'ui.bootstrap', 'ngAside'])
 
   $scope.delete = function(clipTitle) {
     Clips.deleteClip(clipTitle)
+
   }
 
 
@@ -176,6 +177,7 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, No
     clip.category = category;
     Clips.changeCategory(category, clip.title);
   };
+
 
   $scope.cancel = function() {
     $modalInstance.dismiss('cancel');

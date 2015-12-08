@@ -150,12 +150,14 @@ app.post('/deleteClip', function(req, res) {
   console.log('DELETE CYPHER', cypher);
   db.query(cypher, function(err, results) {
     if (err) {
+
       console.log('DELETE ERROR:', err);
     }
     console.log('Clip successfully delete from DB');
     res.send('clip deleted');
   })
 })
+
 
 app.post('/loadCollections', function(req, res) {
   var cypher = "MATCH (n:Collection) RETURN n"
