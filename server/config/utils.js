@@ -168,7 +168,6 @@ createRelation: function(clip, tag, how, relevance, cb) {
     // if (flag) {
 
     // }
-
     request(fullUrl, function (err, res, body) {
       if(err) {
         console.log('ERROR inside suggestionsAPI : ', err);

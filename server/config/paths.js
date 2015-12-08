@@ -264,7 +264,6 @@ module.exports = {
     //TODO : Query DB to find suggestionNodes for each clipNode
     //Attach suggestionNodes as a property of clipNode before sending it back to front-end
     db.query(cypher, function(err, results) {
-      // console.log('CLIPS AND SUGGESTIONNODES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', results);
       res.send(results);
     });
     // // TODO : Get default suggestions and store them so you can use them later
