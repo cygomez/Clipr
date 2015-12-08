@@ -39,7 +39,6 @@ body {
 }
 
 
-
 /*.editable-wrap{
     width: 250px;
     font-size: 12px;
@@ -188,13 +187,6 @@ a.editable-click {
     position: absolute;
     width: 300px;
     top: 300px;
-<<<<<<< 5b236530acb4fdd999697658558484862cb050a5
-=======
-}
-
-#clipHolder {
-    padding-left: 100px;
->>>>>>> [feat] Clip can be deleted with trashcan
 }
 
 
@@ -209,10 +201,6 @@ a.editable-click {
     margin-left: 0px;
     padding-top: 60px;
     z-index: -1;
-<<<<<<< 5b236530acb4fdd999697658558484862cb050a5
-=======
-    overflow-y: auto;
->>>>>>> [feat] Clip can be deleted with trashcan
 }
 
 #clipBox.Food {
