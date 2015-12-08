@@ -179,5 +179,6 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item) {
   //   console.log('display function!!!');
   //   Notes.loadNotes($scope.item.clipUrl);
   // };
+
 };
 
