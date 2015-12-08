@@ -14,6 +14,7 @@ angular
         'clipr.categories',
         'xeditable',
         'ngDragDrop'
+
     ])
 
 
