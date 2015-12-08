@@ -143,6 +143,7 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item) {
   $scope.collections = Clips.clips.collections
   $scope.item = item.clip
     // $scope.notes = Notes.notesObj;
+
   $scope.ok = function() {
     $modalInstance.close();
   };
@@ -177,6 +178,5 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item) {
   //   console.log('display function!!!');
   //   Notes.loadNotes($scope.item.clipUrl);
   // };
-
 };
 
