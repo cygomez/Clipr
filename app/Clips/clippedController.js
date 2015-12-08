@@ -129,7 +129,6 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, No
         window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[url]=' + url +  'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
     };
 
-
   $scope.ok = function() {
     $modalInstance.close();
   };
@@ -165,5 +164,6 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, No
   //   console.log('display function!!!');
   //   Notes.loadNotes($scope.item.clipUrl);
   // };
+
 };
 
