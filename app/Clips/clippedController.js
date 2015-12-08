@@ -146,10 +146,10 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item) {
   };
 
   $scope.addToCollection= function(collection,clip){
-    console.log(collection)
-    console.log(clip)
+    console.log(collection);
+    console.log(clip);
     Clips.addToCollection(collection,clip);
-  }
+  };
 
   $scope.changeCategory = function(category, clip) {
     clip.category = category;
@@ -176,3 +176,4 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item) {
   //   Notes.loadNotes($scope.item.clipUrl);
   // };
 };
+
