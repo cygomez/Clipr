@@ -14,7 +14,7 @@ var request = require('request');
 var http = require('http');
 var classifier = require('./classify.js');
 var natural = require('natural');
-
+var keyword_extractor = require("keyword-extractor");
 // Set website (Heroku or Localhost) and callbackURL
 var website = (process.env.SITE || "http://localhost:3000");
 var callbackURL = website + '/auth/google/callback';
@@ -145,19 +145,11 @@ app.post('/changeCategory', function(req, res) {
   })
 })
 
-<<<<<<< 5b236530acb4fdd999697658558484862cb050a5
 app.post('/deleteClip', function(req, res) {
   var cypher = "MATCH (n:User {email:'" + req.query.email + "'})-[q]-(c:Clip{title:'" + req.query.clipTitle + "'})-[w]-(d) delete q,c,w,d";
   console.log('DELETE CYPHER', cypher);
   db.query(cypher, function(err, results) {
     if (err) {
-=======
-app.post('/deleteClip', function(req,res){
-  var cypher= "MATCH (n:User {email:'" + req.query.email + "'})-[q]-(c:Clip{title:'"+ req.query.clipTitle + "'})-[w]-(d) delete q,c,w,d";
-  console.log('DELETE CYPHER', cypher);
-  db.query(cypher, function(err,results){
-    if(err){
->>>>>>> [feat] Clip can be deleted with trashcan
       console.log('DELETE ERROR:', err);
     }
     console.log('Clip successfully delete from DB');
@@ -165,7 +157,6 @@ app.post('/deleteClip', function(req,res){
   })
 })
 
-<<<<<<< 5b236530acb4fdd999697658558484862cb050a5
 app.post('/loadCollections', function(req, res) {
   var cypher = "MATCH (n:Collection) RETURN n"
   db.query(cypher, function(err, result) {
@@ -194,12 +185,6 @@ app.post('/addCollection', function(req, res) {
       res.send(result);
     })
   })
-=======
-var db = require('seraph')({
-  server: process.env.dbServerUrl || apiKeys.dbServerUrl,
-  user: process.env.dbUser || apiKeys.dbUser,
-  pass: process.env.dbPassword || apiKeys.dbPassword
->>>>>>> [feat] Clip can be deleted with trashcan
 });
 
 app.post('/showCollectionClips', function(req, res) {
