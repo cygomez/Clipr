@@ -257,9 +257,14 @@ module.exports = {
       res.send(results);
     });
 
-    utils.suggestionsAPI(null, function(defaultSugs){
-      // console.log('DEFAULT SUGGESTIONS>>>>>>>>>>>', defaultSugs);
-    }, true);
+    // // TODO : Get default suggestions and store them so you can use them later
+    // if (req.query.cookie !== undefined) {
+    //   utils.suggestionsAPI(null, function(defaultSugs){
+    //     //store trending news in localstorage
+    //     console.log('DEFAULT SUGGESTIONS>>>>>>>>>>>', defaultSugs);
+    //     localStorage.setItem('default', defaultSugs);
+    //   }, true);
+    // }
   },
 
   // addNote: function(req, res) {
