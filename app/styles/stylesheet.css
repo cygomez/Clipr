@@ -15,6 +15,11 @@ body {
     position: relative;
 }
 
+.fa.fa-twitter-square.fa-3 {
+    color: #4099FF;
+    background-color: white;
+}
+
 
 /*.editable-wrap{
     width: 250px;
