@@ -255,9 +255,12 @@ module.exports = {
     //TODO : Query DB to find suggestionNodes for each clipNode
     //Attach suggestionNodes as a property of clipNode before sending it back to front-end
     db.query(cypher, function(err, results) {
-      // console.log('CLIPS AND SUGGESTIONNODES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', results);
       res.send(results);
     });
+
+    utils.suggestionsAPI(null, function(defaultSugs){
+      // console.log('DEFAULT SUGGESTIONS>>>>>>>>>>>', defaultSugs);
+    }, true);
   },
 
   // addNote: function(req, res) {
@@ -438,6 +441,7 @@ storeClip: function(req, res) {
               utils.suggestionsAPI(parsedTitle, function (suggestions) {
                 console.log('TIME TO GET SUGGESTIONS:', suggestions.results);
                 suggestionResults = suggestions.results.map(function (item) {
+
                   // console.log("suggestionResults: ", item);
                   return  {
                     title: item.title,
