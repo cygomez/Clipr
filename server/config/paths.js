@@ -424,7 +424,6 @@ module.exports = {
               // console.log('relationship created');
             });
           });
-
         });
         return clipNode;
       }).then(function(clipNode) {
