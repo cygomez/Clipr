@@ -159,6 +159,7 @@ createRelation: function(clip, tag, how, relevance, cb) {
 
   //Call to FAROO API to get site suggestions
   suggestionsAPI : function(keyword, cb, flag) {
+<<<<<<< 7e5df6cf6762856c20d30f85a69cb85f68ea7742
     var farooAPI = process.env.FAROO || apiKeys.FAROO;
 
     //No flag is passed in, use keyword to
@@ -168,6 +169,16 @@ createRelation: function(clip, tag, how, relevance, cb) {
     // if (flag) {
 
     // }
+=======
+    var sugStorage = {};
+    var farooAPI = process.env.FAROO || apiKeys.FAROO;
+
+    var fullUrl = 'http://www.faroo.com/api?q=' + keyword + '&start=1&length=3&l=en&src=web&i=false&f=json' + farooAPI;
+
+    if (flag) {
+      fullUrl = 'http://www.faroo.com/api?q=&start=1&length=3&l=en&src=news&f=json' + farooAPI;
+    }
+>>>>>>> [feat]: get trendingNews in case of no suggestions
 
     request(fullUrl, function (err, res, body) {
       if(err) {
@@ -175,6 +186,7 @@ createRelation: function(clip, tag, how, relevance, cb) {
       }
 
       var bodyParsed = JSON.parse(body);
+<<<<<<< 7e5df6cf6762856c20d30f85a69cb85f68ea7742
       console.log('BODY>>>>>>>>>>>>>>>>',bodyParsed);
       //check if result has suggestions, if NOT, call suggestionsAPI with flag
       if (bodyParsed.results.length === 0) {
@@ -200,5 +212,12 @@ createRelation: function(clip, tag, how, relevance, cb) {
       console.log('BODY>>>>>>>>>>>>>>>>',bodyParsed);
       cb(bodyParsed);
     });
+=======
+      //store bodyParsed inside sugStorage
+      sugStorage.suggestions = bodyParsed;
+      console.log('suggestionStorage inside suggestionsAPI +++++________+++++', sugStorage.suggestions);
+      cb(sugStorage.suggestions);
+    });
+>>>>>>> [feat]: get trendingNews in case of no suggestions
   }
 };
