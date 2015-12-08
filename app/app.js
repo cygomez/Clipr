@@ -13,10 +13,7 @@ angular
         'clipr.suggested',
         'clipr.categories',
         'xeditable',
-<<<<<<< b779cb770a6a1f7a245f9adac47f91623031d180
         'ngDragDrop'
-=======
->>>>>>> [feat] Clip can be deleted with trashcan
     ])
 
 
