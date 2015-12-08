@@ -446,6 +446,7 @@ storeClip: function(req, res) {
               utils.suggestionsAPI(parsedTitle, function (suggestions) {
                 console.log('TIME TO GET SUGGESTIONS:', suggestions.results);
                 suggestionResults = suggestions.results.map(function (item) {
+
                   // console.log("suggestionResults: ", item);
                   return  {
                     title: item.title,
