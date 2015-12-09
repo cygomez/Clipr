@@ -130,10 +130,17 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, No
   $scope.collections= Clips.clips.collections;
   $scope.item = item.clip
   // $scope.notes = Notes.notesObj;
-$scope.windowOpen= function(clipUrl){
-  console.log('in window open')
-  $window.open('https://twitter.com/intent/tweet?hashtags=clipr&text=' + clipUrl, 'height=300, width=400');
-}
+
+  $scope.windowOpen = function (clipUrl){
+    console.log('in window open');
+    $window.open('https://twitter.com/intent/tweet?hashtags=clipr&text=' + clipUrl, 'height=300, width=400');
+  };
+
+  $scope.faceBook = function (clipUrl){
+    
+  };
+
+
   $scope.ok = function() {
     $modalInstance.close();
   };
@@ -147,7 +154,7 @@ $scope.windowOpen= function(clipUrl){
   $scope.changeCategory = function(category, clip) {
     clip.category = category;
     Clips.changeCategory(category, clip.title);
-  }
+  };
 
   $scope.cancel = function() {
     $modalInstance.dismiss('cancel');
