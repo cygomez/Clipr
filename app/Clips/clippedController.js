@@ -115,10 +115,13 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, No
   $scope.collections= Clips.clips.collections;
   $scope.item = item.clip;
   // $scope.notes = Notes.notesObj;
+
   $scope.windowOpen= function(clipUrl){
     console.log('in window open');
     $window.open('https://twitter.com/intent/tweet?hashtags=clipr&text=' + clipUrl, 'height=300, width=400');
   };
+
+
   $scope.ok = function() {
     $modalInstance.close();
   };
