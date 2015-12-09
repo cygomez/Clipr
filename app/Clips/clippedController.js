@@ -137,6 +137,7 @@ angular.module('clipr.clipped', ['ui.router', 'ui.bootstrap', 'ngAside'])
 
 }]);
 
+
 var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item) {
   $scope.collections = Clips.clips.collections
   $scope.item = item.clip
