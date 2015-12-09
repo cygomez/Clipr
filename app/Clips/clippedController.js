@@ -144,6 +144,7 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item) {
   $scope.item = item.clip
   // $scope.notes = Notes.notesObj;
 
+
   $scope.ok = function() {
     $modalInstance.close();
   };
@@ -158,7 +159,6 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item) {
     clip.category = category;
     Clips.changeCategory(category, clip.title);
   };
-
 
   $scope.cancel = function() {
     $modalInstance.dismiss('cancel');
