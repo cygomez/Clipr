@@ -11,16 +11,6 @@
 </head>
 
 <body ng-app="cliprApp">
-        <!-- Load Facebook SDK for JavaScript -->
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-        
     <div class="container">
         <div ui-view="main" ng-controller="AppController">
         </div>
@@ -42,13 +32,8 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular-aside/dist/js/angular-aside.min.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-<<<<<<< 86444f460c560f9a3bb9948add425b1097f88343
     <script src="bower_components/angular-touch/angular-touch.min.js"></script>  
-=======
-    <script src="bower_components/angular-touch/angular-touch.min.js"></script>
 
-
->>>>>>> [feat]: facebook button
     <!-- /build -->
 </body>
 
