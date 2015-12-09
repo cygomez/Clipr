@@ -25,34 +25,45 @@
             </div>
             <div class="btn-group" id="dropdownCategory">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<<<<<<< f93acca18215507c9ba42fdbc90986673158b9e1
                     + List <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" ng-repeat="list in lists">
                     <li id="dropdown" ng-click="addToCollection('collection.name', clip)">{{list.name}}</li>
                 </ul>
             </div>
-=======
-                    + Collection <span class="caret"></span>
-                </button>
-                <!--   <ul class="dropdown-menu" ng-repeat="collection in collections">
+            + Collection <span class="caret"></span>
+            </button>
+            <!--   <ul class="dropdown-menu" ng-repeat="collection in collections">
                     <li id="dropdown" ng-click="addToCollection('collection.name', clip)">{{collection.name}}</li>
                 </ul> -->
-            </div>
-            <div>
-            <i ng-click= "windowOpen(item.clipUrl)"class="fa fa-twitter-square fa-3"></i>
-            </div>
-            
->>>>>>> [feat]: twitter button
         </div>
+<<<<<<< fd2b087fd92a989ed461396406e64164abc06ca9
         <div id="suggestions" class="container" style="background-color: rgba(128,128,128,0.22);">
             <div ng-repeat="suggestion in item.suggestions" class="row">
                 <div><img src="{{suggestion.suggestionImg}}" class="img-rounded col-md-5" alt="Cinque Terre" height="160px", width="100px"></div>
                 <div><a id="suggestion" href="{{suggestion.suggestionUrl}}" class="col-md-5"  style="padding-top:55px;"> {{suggestion.suggestionTitle}}</a></div>
             </div>
-        </div>
-<<<<<<< f93acca18215507c9ba42fdbc90986673158b9e1
-    </div>
 =======
+
+        <!-- Twitter Button -->
+        <div>
+            <a class="btn btn-social-icon btn-twitter" ng-click="windowOpen(item.clipUrl)">
+              <span class="fa fa-twitter"></span>
+            </a>
+>>>>>>> [feat]: facebook button
+        </div>
+        
+                <!-- Your FaceBook button code -->
+            <div data-href="https://developers.facebook.com/docs/plugins/">            
+              <a class="btn btn-social-icon btn-facebook" data->
+              <span class="fa fa-facebook"></span>
+              </a>  
+            </div>
+        
     </div>
->>>>>>> [feat]: twitter button
+    <div id="suggestions">
+        <ul ng-repeat="suggestion in item.suggestions">
+            <a id="suggestion" href="{{suggestion.suggestionUrl}}"> {{suggestion.suggestionTitle}}</a>
+        </ul>
+    </div>
+</div>
