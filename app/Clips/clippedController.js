@@ -154,6 +154,13 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, No
     $window.open('https://twitter.com/intent/tweet?hashtags=clipr&text=' + clipUrl, 'height=300, width=400');
   };
 
+  $scope.fbShare = function (url, title, winWidth, winHeight) {
+    console.log("inside of facebook");
+        var winTop = (screen.height / 4) - (winHeight / 2);
+        var winLeft = (screen.width / 4) - (winWidth / 2);
+        window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[url]=' + url +  'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+    };
+
 
   $scope.ok = function() {
     $modalInstance.close();
