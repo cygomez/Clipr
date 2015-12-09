@@ -126,7 +126,11 @@ createRelation: function(clip, tag, how, relevance, cb) {
       killTimeout: 1000 * 60 * 2,
 
     // If true, phantomjs script will output requests and responses to stdout
+<<<<<<< 8581efb95162e0369d94c3374bf56764fc52f21c
     verbose: false
+=======
+    verbose: true
+>>>>>>> [fix]: render suggestion images
     };
 
     // Function to parse url
