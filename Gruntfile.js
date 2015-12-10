@@ -113,15 +113,10 @@ module.exports = function(grunt) {
           js: {
             src: [
               'app/bower_components/jquery/dist/jquery.js',
-<<<<<<< 5b236530acb4fdd999697658558484862cb050a5
               "app/bower_components/jquery-ui/jquery-ui.min.js",
               'app/bower_components/angular/angular.js',
               'app/bower_components/bootstrap/dist/js/bootstrap.min.js',
               'app/bower_components/angular-dragdrop/src/angular-dragdrop.min.js',
-=======
-              'app/bower_components/angular/angular.js',
-              'app/bower_components/bootstrap/dist/js/bootstrap.min.js',
->>>>>>> [feat] Clip can be deleted with trashcan
               'app/bower_components/angular-animate/angular-animate.js',
               'app/bower_components/angular-cookies/angular-cookies.js',
               'app/bower_components/angular-resource/angular-resource.js',
