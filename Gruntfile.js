@@ -135,7 +135,7 @@ module.exports = function(grunt) {
         dest: 'app/dist/js/app.min.js'
       }
     },
-
+    
     // Minify CSS
     cssmin: {
       build: {
