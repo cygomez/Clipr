@@ -38,8 +38,6 @@ body {
     width: 34px;
 }
 
-
-
 /*.editable-wrap{
     width: 250px;
     font-size: 12px;
@@ -61,6 +59,13 @@ a.editable-click {
 
 .editable-controls>input {
     color: black;
+}
+
+
+.add-btn {
+    height: auto;
+    text-align: center;
+    width: auto;
 }
 
 #clipEdit.Food {
@@ -467,6 +472,8 @@ a#articleTitle {
 
 #slogan {
     top: 100px;
+    left: -70px;
+    color: #0A2342;
     position: relative;
 }
 

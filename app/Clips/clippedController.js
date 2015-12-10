@@ -1,11 +1,24 @@
 angular.module('clipr.clipped', ['ui.router', 'ui.bootstrap', 'ngAside'])
 
-.controller('ClipController', ['$scope', 'Clips', '$modal', 'Notes', 'AuthService', '$aside', '$cookies','$state', function($scope, Clips, $modal, Notes, AuthService, $aside, $cookies, $state) {
+.controller('ClipController', ['$scope', 'Clips', '$modal', 'Notes', 'AuthService', '$aside', '$cookies', '$state', function($scope, Clips, $modal, Notes, AuthService, $aside, $cookies, $state) {
 
   $scope.clips = Clips.clips;
   $scope.clipShow = false;
-  $scope.categories=Clips.clips;
+  $scope.categories = Clips.clips;
+  $scope.collection = "";
 
+
+  $scope.submit = function() {
+    console.log('in submit')
+    Clips.addCollection($scope.collection);
+      $scope.collection = "";
+    
+  }
+
+ $scope.showCollectionClips= function(collection){
+  console.log('in show colllection clips', collection)
+  Clips.showCollectionClips(collection);
+ }
 
   $scope.loadClipsByCategory = function(category) {
     Clips.loadClipsByCategory(category);
@@ -13,15 +26,20 @@ angular.module('clipr.clipped', ['ui.router', 'ui.bootstrap', 'ngAside'])
   }
 
   $scope.navToClips = function() {
-   Clips.loadAllClips($cookies.get('clipr'));
-   $state.go('main')
- };
+    Clips.loadAllClips($cookies.get('clipr'));
+    $state.go('main')
+  };
 
   $scope.loadAllClips = function() {
     Clips.loadAllClips($cookies.get('clipr'));
   };
 
-$scope.loadAllClips();
+  $scope.loadAllClips();
+
+  $scope.loadCollections = function() {
+    Clips.loadCollections();
+  }
+ $scope.loadCollections();
 
   $scope.logOut = function() {
     AuthService.logOut();
@@ -37,7 +55,8 @@ $scope.loadAllClips();
   };
 
   $scope.delete = function(clipTitle) {
-      Clips.deleteClip(clipTitle)
+    Clips.deleteClip(clipTitle)
+
   }
 
 
@@ -94,28 +113,32 @@ $scope.loadAllClips();
 
 var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, Notes, $window) {
   $scope.collections= Clips.clips.collections;
-  $scope.item = item.clip
+  $scope.item = item.clip;
   // $scope.notes = Notes.notesObj;
 
   $scope.windowOpen = function (clipUrl){
-    console.log('in window open');
     $window.open('https://twitter.com/intent/tweet?hashtags=clipr&text=' + clipUrl, 'height=300, width=400');
   };
 
   $scope.fbShare = function (url, title, winWidth, winHeight) {
-    console.log("inside of facebook");
-        var winTop = (screen.height / 4) - (winHeight / 2);
-        var winLeft = (screen.width / 4) - (winWidth / 2);
-        window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[url]=' + url +  'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
-    };
+    var winTop = (screen.height / 4) - (winHeight / 2);
+    var winLeft = (screen.width / 4) - (winWidth / 2);
+    window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[url]=' + url +  'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+  };
 
 
   $scope.ok = function() {
     $modalInstance.close();
   };
 
-   $scope.changeCategory = function(category, clip) {
-    clip.category= category;
+  $scope.addToCollection= function(collection,clip){
+    console.log(collection);
+    console.log(clip);
+    Clips.addToCollection(collection,clip);
+  };
+
+  $scope.changeCategory = function(category, clip) {
+    clip.category = category;
     Clips.changeCategory(category, clip.title);
   };
 
@@ -140,3 +163,4 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, No
   // };
 
 };
+
