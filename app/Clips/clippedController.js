@@ -138,10 +138,9 @@ angular.module('clipr.clipped', ['ui.router', 'ui.bootstrap', 'ngAside'])
 
 }]);
 
-var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, Notes, $window) {
+var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, $window) {
   $scope.collections= Clips.clips.collections;
   $scope.item = item.clip;
-  // $scope.notes = Notes.notesObj;
 
   $scope.windowOpen= function(clipUrl){
     $window.open('https://twitter.com/intent/tweet?hashtags=clipr&text=' + clipUrl, 'height=300, width=400');
@@ -172,21 +171,6 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, No
     $modalInstance.dismiss('cancel');
   };
 
-  //On 'save', make call to server with notes and site url
-  //fetch Notes and display it
-  // $scope.save = function(userNotes) {
-  //   $scope.NoteAndUrl = {
-  //     note: userNotes,
-  //     url: $scope.item.clipUrl
-  //   };
-  //   console.log('Notes being passed to server', $scope.NoteAndUrl);
-  //   Notes.addNotes($scope.NoteAndUrl);
-  // };
-
-  // $scope.display = function() {
-  //   console.log('display function!!!');
-  //   Notes.loadNotes($scope.item.clipUrl);
-  // };
 
 };
 
