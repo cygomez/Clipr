@@ -170,11 +170,10 @@ createRelation: function(clip, tag, how, relevance, cb) {
     // }
     request(fullUrl, function (err, res, body) {
       if(err) {
-        console.log('ERROR inside suggestionsAPI!!');
+        console.log('ERROR inside suggestionsAPI : ', err);
       }
 
       var bodyParsed = JSON.parse(body);
-      console.log('BODY>>>>>>>>>>>>>>>>',bodyParsed);
       //check if result has suggestions, if NOT, call suggestionsAPI with flag
       if (bodyParsed.results.length === 0) {
         module.exports.getTrendingNews(function(news) {
@@ -196,7 +195,6 @@ createRelation: function(clip, tag, how, relevance, cb) {
         console.log('ERROR inside getTrendingNews : ', err);
       }
       var bodyParsed = JSON.parse(body);
-      console.log('BODY>>>>>>>>>>>>>>>>',bodyParsed);
       cb(bodyParsed);
     });
   }
