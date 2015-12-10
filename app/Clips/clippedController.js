@@ -126,6 +126,7 @@ angular.module('clipr.clipped', ['ui.router', 'ui.bootstrap', 'ngAside'])
 
 }]);
 
+HEAD
 
 var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, Notes, $window) {
 
@@ -139,6 +140,7 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, No
   };
 
   $scope.fbShare = function (url, title, winWidth, winHeight) {
+<<<<<<< HEAD
     console.log("inside of facebook");
         var winTop = (screen.height / 4) - (winHeight / 2);
         var winLeft = (screen.width / 4) - (winWidth / 2);
@@ -155,10 +157,11 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, No
   };
 
   $scope.fbShare = function (url, title, winWidth, winHeight) {
-        var winTop = (screen.height / 4) - (winHeight / 2);
-        var winLeft = (screen.width / 4) - (winWidth / 2);
-        window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[url]=' + url +  'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+      var winTop = (screen.height / 4) - (winHeight / 2);
+      var winLeft = (screen.width / 4) - (winWidth / 2);
+      window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[url]=' + url +  'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
     };
+
 
 
   $scope.ok = function() {

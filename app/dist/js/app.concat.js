@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -62248,3 +62249,5 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, No
 
 	
 ;
+=======
+>>>>>>> 1c8a2a43fa39ae5c0562c342766fc8127614ef2a
