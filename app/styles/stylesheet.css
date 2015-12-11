@@ -23,7 +23,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Raleway", sans-serif;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
 }
 
@@ -67,7 +67,7 @@ h6 {
     position: absolute;
     text-align: left;
     height: 34px;
-    width: 34px;
+    width: 42px;
 }
 
 
@@ -972,6 +972,8 @@ video {
 .navbar-default .navbar-nav>li>a,
 .navbar-default .navbar-text {
     color: white;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    font-size: 5em;
 }
 
 .intro-divider {
