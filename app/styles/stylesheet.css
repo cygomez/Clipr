@@ -961,8 +961,6 @@ video {
 .navbar-default .navbar-nav>li>a,
 .navbar-default .navbar-text {
     color: white;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
-    font-size: 5em;
 }
 
 .intro-divider {
