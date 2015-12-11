@@ -1,4 +1,4 @@
-Css 
+Css
 
 
 
@@ -27,7 +27,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Raleway", sans-serif;
+    font-family: "Raleway", "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
 }
 
@@ -893,6 +893,10 @@ h3 {
 
 
 /*---------------------START OF LANDING PAGE CSS----------------*/
+
+.fa-chrome {
+
+}
 
 .fa-google-plus-square {
     color: #D64837;
