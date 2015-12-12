@@ -66,6 +66,7 @@
     "joi": "^7.0.0",
     "keyword-extractor": "0.0.12",
     "lodash": "^3.10.1",
+    "moment": "^2.10.6",
     "natural": "^0.2.1",
     "passport": "^0.3.2",
     "passport-google-oauth": "^0.2.0",
