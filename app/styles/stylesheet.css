@@ -1,3 +1,42 @@
+.btn-twitter {
+    color: #fff;
+    background-color: #55acee;
+    border-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: inline-block;
+    top: -7px;
+    left: 25px;
+    z-index: 9999;
+}
+
+.btn-facebook {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: inline-block;
+    top: -7px;
+    left: 30px;
+    z-index: 9999;
+}
+
+.btn-google {
+    color: #fff;
+    background-color: #dd4b39;
+    border-color: rgba(0, 0, 0, 0.2);
+    top: -7px;
+    left: 35px;
+    z-index: 9999;
+}
+
+.btn-social-icon {
+    text-align: left;
+    height: 34px;
+    width: 46px;
+}
+
+
+
 /*body {
     background-color: white;
 }*/
@@ -23,7 +62,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Raleway", "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
 }
 
@@ -45,30 +84,7 @@ h6 {
     right: 0;
 }
 
-.btn-twitter {
-    color: #fff;
-    background-color: #55acee;
-    border-color: rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 200px;
-    left: 10px;
-}
 
-.btn-facebook {
-    color: #fff;
-    background-color: #3b5998;
-    border-color: rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 200px;
-    left: 50px;
-}
-
-.btn-social-icon {
-    position: absolute;
-    text-align: left;
-    height: 34px;
-    width: 42px;
-}
 
 
 /*.editable-wrap{
@@ -145,7 +161,8 @@ a.editable-click {
 #modalButton {
     width: 100%;
     height: 60px;
-    margin-top: 10px;
+    margin-top: -12px;
+    top: 56px;
 }
 
 #clipEdit.Shopping {
@@ -903,6 +920,10 @@ h3 {
 
 
 /*---------------------START OF LANDING PAGE CSS----------------*/
+
+.fa-chrome {
+
+}
 
 .fa-google-plus-square {
     color: #D64837;
