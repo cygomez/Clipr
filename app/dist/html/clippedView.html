@@ -4,8 +4,14 @@
     </div>
     <nav class="collapse navbar-collapse" id="js-navbar-collapse">
         <ul class="nav navbar-nav">
+<<<<<<< HEAD
             <li id="navLi"><a id="navLink" ng-click='logOut()'>Logout</a></li>
             <li id="navLi" class="chrome"><a id="navLink" class="chrome" rel="chrome-webstore-item" href="https://chrome.google.fcom/webstore/detail/ccgfgdnpcafmblafaojcahhjedhbnjal" onclick="chrome.webstore.install()"><i class="fa fa-chrome fa-fw"></i>Add to Chrome</a></li>
+=======
+            <li><a id="navLink" ng-click='loadClipsByCategory("all")'>All Clips</a></li>
+            <li><a id="navLink" ng-click='logOut()'>Logout</a></li>
+            <li><a id="navLink" rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/ccgfgdnpcafmblafaojcahhjedhbnjal" onclick="chrome.webstore.install()" target="_blank" >Add to Chrome</a></li>
+>>>>>>> bdc1a4f20c26716b0008b466b0c32cf81680ae69
         </ul>
     </nav>
 </div>
@@ -59,8 +65,14 @@
                     <h6 id="overlayTime"><span>added </span><span am-time-ago="clip.timeAdded"></span></h6>
                     <a ng-click="incrementCount(clip.title)" ng-href="{{clip.clipUrl}}" target="_blank">
                         <h4 id="overlayTitle" title='{{clip.title}}'> {{clip.title}}</h4>
+<<<<<<< HEAD
                     </a>
                 </div>
+=======
+                         <h6 id="overlayTime"><span>added </span><span am-time-ago="clip.timeAdded"></span></h6>
+                    </div>
+                </a>
+>>>>>>> bdc1a4f20c26716b0008b466b0c32cf81680ae69
             </div>
         </div>
         <!-- </div> -->
