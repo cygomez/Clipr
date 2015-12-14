@@ -179,6 +179,14 @@
     button {
         margin-left: 10px;
     }
+
+    .list-inline {
+      text-align: center;
+    }
+
+    .footerH-C {
+      font-size: 22px;
+    }
     
     #clipEdit.Technology {
         width: 250px;
@@ -1019,11 +1027,8 @@ table tr:nth-child(even) {
     
     .intro-header {
         padding-top: 50px;
-        /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-        padding-bottom: 50px;
-        text-align: center;
+        /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */       text-align: center;
         width: 100%;
-        height: 1000px;
         color: #f8f8f8;
         /*    background: url(../images/intro-bg.jpg) no-repeat center center;
 */
@@ -1049,7 +1054,7 @@ table tr:nth-child(even) {
     .intro-message {
         position: relative;
         padding-top: 10%;
-        padding-bottom: 20%;
+        padding-bottom: 14%;
         color: #0a2342;
     }
     
