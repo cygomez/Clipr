@@ -91,7 +91,7 @@ module.exports = function(grunt) {
           expand: true,
           flatten: true,
           src:[
-          'app/assets/images/clipVideo.mp4'
+          'app/assets/images/clipVideo_compressed.mp4'
           ], 
           dest:'app/dist/mov',
           filter:'isFile'
