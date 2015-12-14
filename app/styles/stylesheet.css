@@ -6,7 +6,8 @@
     overflow-y: auto;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
-}*/    
+}*/
+    
     body,
     html {
         width: 100%;
@@ -63,7 +64,7 @@
         z-index: 9999;
         display: inline-block;
     }
-
+    
     .btn-google {
         color: #fff;
         background-color: #dd4b39;
@@ -179,13 +180,13 @@
     button {
         margin-left: 10px;
     }
-
+    
     .list-inline {
-      text-align: center;
+        text-align: center;
     }
-
+    
     .footerH-C {
-      font-size: 22px;
+        font-size: 22px;
     }
     
     #clipEdit.Technology {
@@ -386,6 +387,10 @@
         font-size: 25px;
         z-index: 4;
         color: #fff;
+    }
+    
+    .fa-plus-circle:hover {
+        color: #2CA58D;
     }
     
     #categoryBox.Politics {
@@ -759,7 +764,6 @@ table tr:nth-child(even) {
         width: 100%;
         margin-top: 10px;
         top: 69px;
-
     }
     /*#clipBackground {
     width: 144px;
@@ -796,6 +800,18 @@ table tr:nth-child(even) {
         left: 300px;
     }
     
+    #ngList {
+        width: 100%;
+    }
+    
+    #ngList.odd {
+        background-color: white;
+    }
+    
+    #listName {
+        font-size: 20px;
+    }
+    
     .fa-trash-o {
         left: 5px;
         position: absolute;
@@ -803,6 +819,10 @@ table tr:nth-child(even) {
         font-size: 25px;
         z-index: 4;
         color: #fff;
+    }
+    
+    .fa-trash-o:hover {
+        color: #2CA58D;
     }
     
     #dropdown:hover {
@@ -829,16 +849,16 @@ table tr:nth-child(even) {
     #clipBox:hover {
         cursor: pointer;
     }
-
+    
     #googlebox.btn.btn-block.btn-social.btn-google {
-      width: 15%;
-      background-color: white;
-      color: #0A2342;
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      text-align: center;
-      z-index: 1;
+        width: 15%;
+        background-color: white;
+        color: #0A2342;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        text-align: center;
+        z-index: 1;
     }
     
     #googlebox.btn.btn-block.btn-social.btn-google:hover {
@@ -1027,7 +1047,8 @@ table tr:nth-child(even) {
     
     .intro-header {
         padding-top: 50px;
-        /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */       text-align: center;
+        /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+        text-align: center;
         width: 100%;
         color: #f8f8f8;
         /*    background: url(../images/intro-bg.jpg) no-repeat center center;
@@ -1050,7 +1071,6 @@ table tr:nth-child(even) {
         opacity: 0.78;
     }
     
-
     .intro-message {
         position: relative;
         padding-top: 10%;
