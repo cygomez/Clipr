@@ -29,8 +29,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-autohide="false" data-toggle="dropdown"> Your Lists <b class="caret"></b></a>
                     <ul class="dropdown-menu navmenu-nav" role="menu">
-                        <ul ng-init="loadCollections()" ng-repeat="collection in clips.collections">
-                            <a ng-click="showCollectionClips(collection)">{{collection}}</a>
+                        <ul id="ngList" ng-class-odd="'odd'" ng-init="loadCollections()" ng-repeat="collection in clips.collections">
+                            <a id="listName" ng-click="showCollectionClips(collection)">{{collection}}</a>
                         </ul>
                         <form ng-submit="submit()">
                             <input type="text" placeholder="Add new collection" ng-model="collection" name="collection" />
