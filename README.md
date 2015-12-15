@@ -13,15 +13,15 @@ Web app and Chrome extension that improves bookmarks through smart categorizatio
 
 ## Table of Contents
 
-- [Features](#Features)
-- [Install](#Install and Run Locally)
-- [Chrome Extension](#Download Chrome Extension)
-- [Built With](#Built With)
-- [APIs](#APIs)
-- [Contribution Guide](#Contribution Guide)
-- [Demo](#Demo)
-- [Team](#Team)
-- [License](#License)
+  - [Features](#features)
+  - [Install](#install-and-run-locally)
+  - [Chrome Extension](#download-chrome-extension)
+  - [Built With](#built-with)
+  - [APIs](#apis)
+  - [Contribution Guide](#contribution-guide)
+  - [Demo](#demo)
+  - [Team](#team)
+  - [License](#license)
 
 ## Features
 

@@ -130,8 +130,7 @@ module.exports = function(grunt) {
           'app/Clips/clippedController.js',
           'app/Clips/sidebarController.js',
           'app/clipSelect/suggestedController.js',
-          'app/Landing/LandingController.js',
-          'app/Profile/ProfileController.js'
+          'app/Landing/LandingController.js'
         ],
         dest: 'app/dist/js/app.concat.js'
       }
