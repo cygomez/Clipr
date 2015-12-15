@@ -83078,4 +83078,3 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, $w
 
 
 	
-;
