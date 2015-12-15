@@ -82564,7 +82564,6 @@ angular
         'ngTouch',
         'clipr.services',
         'clipr.clipped',
-        'clipr.suggested',
         'clipr.categories',
         'xeditable',
         'ngDragDrop'
@@ -82628,7 +82627,7 @@ angular
 
 }]);;angular.module('clipr.services', ['ngCookies'])
 
-//Session Service
+//Session service
 .service('Session', function() {
   this.create = function(sessionId, userId) {
     this.id = sessionId;
@@ -82642,8 +82641,8 @@ angular
 })
 
 .factory('Clips', ["$http", "$state", "$cookies", function($http, $state, $cookies) {
-  //loadClips - hhtp request to server func
-  //return back array of clip objects
+
+  //Clips object to hold data about all sites, categories, collections, and suggestions
   var clips = {
     data: {},
     clips: [],
@@ -82651,29 +82650,29 @@ angular
     collections: []
   };
 
+  //Sorts clips by most visited using click count
   var mostVisited = function() {
-    // loadClipsByCategory('all');
     var sortedClips = clips.clips.sort(function(a, b) {
       a.clickCount = a.clickCount || null;
       b.clickCount = b.clickCount || null;
       return b.clickCount - a.clickCount;
-    })
-    console.log('MOSTVISITED', sortedClips)
-    clips.clips = sortedClips
-  
-  }
+    });
+    clips.clips = sortedClips;
 
+  };
+
+  //Sorts clips by most recently added using timeAdded
   var recentlyAdded = function() {
-    // loadClipsByCategory('all')
     var sortedClips = clips.clips.sort(function(a, b) {
       a.timeAdded = a.timeAdded || null;
       b.timeAdded = b.timeAdded || null;
       return b.timeAdded - a.timeAdded;
-    })
-    console.log(sortedClips)
-    clips.clips = sortedClips
-  }
+    });
+    console.log(sortedClips);
+    clips.clips = sortedClips;
+  };
 
+  //Increments click count for each clip
   var incrementCount = function(clipTitle) {
     return $http({
       method: 'POST',
@@ -82683,9 +82682,10 @@ angular
       }
     }).then(function(response) {
       loadAllClips($cookies.get('clipr'));
-    })
-  }
+    });
+  };
 
+  //Sorts and accumulates clips according to each cateogry
   var loadClipsByCategory = function(topic) {
     var categorizedClips = [];
     if (topic === 'all') {
@@ -82699,9 +82699,10 @@ angular
         categorizedClips.push(clips.categories[topic][key]);
       }
     }
-    clips.clips = categorizedClips;    
+    clips.clips = categorizedClips;
   };
 
+  //Initial function that makes GET request to server to fetch all clip DATA from DB
   var loadAllClips = function(cookie) {
     return $http({
       method: 'GET',
@@ -82713,11 +82714,13 @@ angular
       clips.data = response.data;
       clips.clips = response.data;
       clips.categories = {};
-      for (var x = 0; x < response.data.length; x++) {
 
+      for (var x = 0; x < response.data.length; x++) {
         var clip = response.data[x].clips;
         var suggestion = response.data[x].suggestions;
 
+        //Process data sent back from DB
+        //Remove duplicate data by iterating through each clip, checking suggestion and category
         if (!clips.categories[clip.category]) {
           clips.categories[clip.category] = {};
           clips.categories[clip.category][clip.title] = clip;
@@ -82731,28 +82734,27 @@ angular
             clips.categories[clip.category][clip.title].suggestions = [suggestion];
           }
         }
-        console.log('clips.categories', clips.categories);
       }
       loadClipsByCategory('all');
     });
   };
 
+  //Load all collections by making POST request to server
   var loadCollections = function() {
     return $http({
       method: 'POST',
       url: '/loadCollections'
     }).then(function(response) {
-      console.log('load collection response', response)
       var response = response.data;
       var result = [];
       for (var i = 0; i < response.length; i++) {
         result.push(response[i].collection);
-      }
-      console.log('result', result)
+      };
       clips.collections = result;
-    })
-  }
+    });
+  };
 
+  //Adds specific clip to a collection
   var addToCollection = function(collection, clip) {
     return $http({
       method: 'POST',
@@ -82761,8 +82763,10 @@ angular
         collection: collection,
         clip: clip.title
       }
-    })
-  }
+    });
+  };
+
+  //Show clips that belong to specific collection
   var showCollectionClips = function(collection) {
     return $http({
       method: 'POST',
@@ -82771,10 +82775,11 @@ angular
         collection: collection
       }
     }).then(function(response) {
-      clips.clips = response.data
-    })
-  }
+      clips.clips = response.data;
+    });
+  };
 
+  //Add new collection
   var addCollection = function(collection) {
     return $http({
       method: 'POST',
@@ -82783,11 +82788,11 @@ angular
         collection: collection
       }
     }).then(function(response) {
-      console.log('received response')
       loadCollections();
-    })
-  }
+    });
+  };
 
+  //Delete clip from database, sends title of clip and email of user to query DB
   var deleteClip = function(clipTitle) {
     return $http({
       method: 'POST',
@@ -82798,9 +82803,10 @@ angular
       }
     }).then(function(response) {
       loadAllClips($cookies.get('clipr'));
-    })
-  }
+    });
+  };
 
+  //Makes POST request to server with title of clip and new category to assign it to
   var changeCategory = function(category, clipTitle) {
     return $http({
       method: 'POST',
@@ -82812,9 +82818,9 @@ angular
     }).then(function(response) {
       loadAllClips($cookies.get('clipr')).then(function(response) {
       loadClipsByCategory(category);
-      })
-    })
-  }
+      });
+    });
+  };
 
   return {
     loadClipsByCategory: loadClipsByCategory,
@@ -82833,14 +82839,12 @@ angular
 
 }])
 
-
+//AuthService factory to handle cookies, sessions and state of application
 .factory('AuthService', ['$http', 'Session', '$cookies', '$state', function($http, Session, $cookies, $state) {
-
 
   var isAuthenticated = function() {
     //check local storage return true or false depending on prescence of Clipr cookie
     console.log('cookies are delish', $cookies.get('clipr'));
-
     if ($cookies.get('clipr')) {
       return true;
     } else {
@@ -82848,13 +82852,11 @@ angular
     }
   };
 
+  //Logs out user, removes cookies and changes state back to landing
   var logOut = function() {
-    console.log('in logout yo');
-    //remove cookie on logout
     $cookies.remove('clipr');
     $state.go('landing');
   };
-
 
   return {
     isAuthenticated: isAuthenticated,
@@ -82887,7 +82889,7 @@ angular
 
 .controller('ClipController', ['$scope', 'Clips', '$modal', 'AuthService', '$aside', '$cookies', '$state', '$timeout', function($scope, Clips, $modal, AuthService, $aside, $cookies, $state, $timeout) {
 
-//***'Clip' denotes each site that user bookmarks using the Clippr Chrome extension
+//*** 'Clip' denotes each site that user bookmarks using the Clippr Chrome extension
 
   $scope.clips = Clips.clips;
   $scope.allClips = false;
@@ -83078,25 +83080,4 @@ var ModalInstanceCtrl = function($scope, $modalInstance, Clips, $modal, item, $w
     $modalInstance.dismiss('cancel');
   };
 
-};;// angular.module('clipr.sidebar',['ui.router'])
-
-// .controller('SidebarController',['$scope', 'Clips', function($scope, Clips){
-
-//   $scope.categories= Clips.clips;
-
-//   $scope.loadClipsByCategory= function(category){
-//   	console.log('category', category);
-//   	Clips.loadClipsByCategory(category);
-//   };
-
-// }]);
-
-//commented out for changes
-
-
-
-;angular.module('clipr.suggested',['ui.router']);
-
-
-
-	
+};

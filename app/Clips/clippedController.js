@@ -2,7 +2,7 @@ angular.module('clipr.clipped', ['ui.router', 'ui.bootstrap', 'ngAside', 'angula
 
 .controller('ClipController', ['$scope', 'Clips', '$modal', 'AuthService', '$aside', '$cookies', '$state', '$timeout', function($scope, Clips, $modal, AuthService, $aside, $cookies, $state, $timeout) {
 
-//***'Clip' denotes each site that user bookmarks using the Clippr Chrome extension
+//*** 'Clip' denotes each site that user bookmarks using the Clippr Chrome extension
 
   $scope.clips = Clips.clips;
   $scope.allClips = false;

@@ -48,6 +48,8 @@ app.use(session({
     httpOnly: false
   }
 }));
+
+//Initialize session using passport
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new GoogleStrategy({
@@ -56,20 +58,20 @@ passport.use(new GoogleStrategy({
   callbackURL: callbackURL,
 
 }, function(accessToken, refreshToken, profile, done) {
-  console.log('looking for gid', profile);
+
   var cypher = "MATCH (node: User)" +
     " WHERE node.username = " +
     "'" + profile.displayName + "'" +
     " RETURN node";
-  db.query(cypher, function(err, result) {
 
+  db.query(cypher, function(err, result) {
     if (err) {
       throw err;
     }
     console.log("results: ", result);
     if (result.length === 0) {
-      //create node
-      console.log('CREATING NODE IN CREATE NODE :', result);
+      //Create new user node inside DB
+
       db.save({
         username: profile.displayName,
         sessionToken: accessToken,
@@ -78,29 +80,21 @@ passport.use(new GoogleStrategy({
         if (err) {
           throw err;
         }
-
         db.label(node, ['User'], function(err) {
           if (err) {
             throw err;
           }
-
           return done(null, node);
         });
-
       });
     } else {
-
-
       //attach user node and acces token to user
       profile.userOne = result[0];
       profile.accessToken = accessToken;
       profile.email = result[0].email;
-
     }
     return done(null, profile);
-
   });
-
 }));
 
 passport.serializeUser(function(user, done) {
@@ -110,6 +104,8 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
+
+//Initialize db variable using seraph
 var db = require('seraph')({
   server: process.env.dbServerUrl || apiKeys.dbServerUrl,
   user: process.env.dbUser || apiKeys.dbUser,
@@ -130,16 +126,15 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 
 
 app.post('/changeCategory', function(req, res) {
-  var cypher = "MATCH (n:Clip) WHERE n.title='" + req.query.clipTitle + "' SET n.category='" + req.query.category + "' RETURN n"
-  console.log(cypher)
+  var cypher = "MATCH (n:Clip) WHERE n.title='" + req.query.clipTitle + "' SET n.category='" + req.query.category + "' RETURN n";
   db.query(cypher, function(err, results) {
     if (err) {
-      console.log('ERR', err)
+      console.log('ERR', err);
     }
     console.log('Category was successfully changed', results);
     res.send('category successfully changed');
-  })
-})
+  });
+});
 
 app.post('/deleteClip', function(req, res) {
   var cypher = "MATCH (n:User {email:'" + req.query.email + "'})-[q]-(c:Clip{title:'" + req.query.clipTitle + "'})-[w]-(d) delete q,c,w,d";
@@ -150,19 +145,18 @@ app.post('/deleteClip', function(req, res) {
     }
     console.log('Clip successfully delete from DB');
     res.send('clip deleted');
-  })
-})
+  });
+});
 
 app.post('/loadCollections', function(req, res) {
-  var cypher = "MATCH (n:Collection) RETURN n"
+  var cypher = "MATCH (n:Collection) RETURN n";
   db.query(cypher, function(err, result) {
     if (err) {
-      console.log('error retrieving collections')
+      console.log('error retrieving collections');
     }
-    console.log('collection result', result)
     res.send(result);
-  })
-})
+  });
+});
 
 app.post('/addCollection', function(req, res) {
   console.log('in add collection');
@@ -170,54 +164,54 @@ app.post('/addCollection', function(req, res) {
     collection: req.query.collection
   }, function(err, collectionNode) {
     if (err) {
-      console.log('error creating collection')
+      console.log('error creating collection');
     }
     //label the clip node
-    console.log('in label collection')
+    console.log('in label collection');
     db.label(collectionNode, ['Collection'], function(err, result) {
       if (err) {
-        console.log('error labeling collection node')
+        console.log('error labeling collection node');
       }
       res.send(result);
-    })
-  })
+    });
+  });
 });
 
 app.post('/showCollectionClips', function(req, res) {
-  var cypher = 'MATCH (n:Clip)-[:partOf]->(c:Collection) WHERE c.collection="' + req.query.collection + '" RETURN n'
-  console.log(cypher)
+  var cypher = 'MATCH (n:Clip)-[:partOf]->(c:Collection) WHERE c.collection="' + req.query.collection + '" RETURN n';
+
   db.query(cypher, function(err, result) {
     if (err) {
-      console.log('error retrieving collection clips')
+      console.log('error retrieving collection clips');
     }
-    console.log('collection clips:', result)
+    console.log('collection clips:', result);
     res.send(result);
-  })
-})
+  });
+});
 
 module.exports = {
 
   incrementCount: function(req, res) {
-    console.log('in increment count')
-    var cypher = 'MATCH (n:Clip {title:"' + req.query.clipTitle + '"}) SET n.clickCount= n.clickCount + 1 RETURN n'
+    console.log('in increment count');
+    var cypher = 'MATCH (n:Clip {title:"' + req.query.clipTitle + '"}) SET n.clickCount= n.clickCount + 1 RETURN n';
     db.query(cypher, function(err, result) {
       if (err) {
-        console.log('error increasing clickCount')
+        console.log('error increasing clickCount');
       }
-      console.log('countresult', result)
-      res.send(result)
-    })
+      console.log('countresult', result);
+      res.send(result);
+    });
   },
 
   addToCollection: function(req, res) {
-    var cypher = 'MATCH (n:Clip {title:"' + req.query.clip + '"}),(c:Collection {collection:"' + req.query.collection + '"}) CREATE n-[r:partOf]->c  RETURN r'
-    console.log(cypher)
+    var cypher = 'MATCH (n:Clip {title:"' + req.query.clip + '"}),(c:Collection {collection:"' + req.query.collection + '"}) CREATE n-[r:partOf]->c  RETURN r';
+
     db.query(cypher, function(err, result) {
       if (err) {
-        console.log('error in relating collection')
+        console.log('error in relating collection');
       }
-      console.log('Added To Collection', result)
-    })
+      console.log('Added To Collection', result);
+    });
   },
 
   loadClipsByCategory: function(req, res) {
@@ -249,19 +243,6 @@ module.exports = {
     });
   },
 
-  //KEEP FOR NOW ---------------------
-  //When a user request suggestions, we query the DB and send back suggestions
-  // getSuggestions: function (req, res) {
-  //   console.log('TRAPSOUL', req.query.title);
-  //   var title = req.query.title;
-  //   var cypher = 'MATCH (n:Clip {title:"' + title  + '"})-->(s:Suggestion) RETURN s';
-
-  //   db.query(cypher, function (err, result) {
-  //     console.log("Dont::::: ", result);
-  //     res.send(results);
-  //   });
-  // },
-
   storeClip: function(req, res) {
     // Declaring Variables
     var email = req.body.email;
@@ -289,7 +270,7 @@ module.exports = {
         } else {
           //now user is acertained, check to see if they already have this clip
           db.query(isdupCypher, function(err, res) {
-            var flag = false
+            var flag = false;
             for (var i = 0; i < res.length; i++) {
               if (res[i].title === title) {
                 flag = true;
@@ -297,7 +278,7 @@ module.exports = {
               }
             }
             if (!flag) {
-              resolve(flag)
+              resolve(flag);
             } else {
               console.log('error: this user already has this clip');
               reject("DUP CLIP FOR USER");
@@ -305,7 +286,7 @@ module.exports = {
           });
 
         }
-      })
+      });
     }).then(function(val) {
       console.log('loading corpus & classifiying clip...');
       natural.BayesClassifier.load('classifier.json', null, function(err, classifier) {
@@ -317,9 +298,9 @@ module.exports = {
     }).catch(function(error) {
 
       if (error === "DUP CLIP FOR USER") {
-        res.send("hey, you already have this clip!")
+        res.send("hey, you already have this clip!");
       } else {
-        res.send('sorry, user not found')
+        res.send('sorry, user not found');
       }
     });
 
@@ -408,13 +389,13 @@ module.exports = {
     }
 
     function extractKeywordsNoWatson(clipNode) {
-      var text = clipNode.text
+      var text = clipNode.text;
         //load an instance of term freq - inverse term freq instance
       TfIdf = natural.TfIdf,
         tfidf = new TfIdf();
 
       //add the document from the node.text - this represents the doc in feature space
-      tfidf.addDocument(text)
+      tfidf.addDocument(text);
 
       //get all terms
       var results = tfidf.listTerms(0);
