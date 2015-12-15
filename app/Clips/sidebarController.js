@@ -1,16 +1,17 @@
-angular.module('clipr.sidebar',['ui.router'])
+// angular.module('clipr.sidebar',['ui.router'])
 
-.controller('SidebarController',['$scope', 'Clips', function($scope, Clips){
+// .controller('SidebarController',['$scope', 'Clips', function($scope, Clips){
 
-  $scope.categories= Clips.clips;
+//   $scope.categories= Clips.clips;
 
-  $scope.loadClipsByCategory= function(category){
-  	console.log('category', category);
-  	Clips.loadClipsByCategory(category);
-  };
+//   $scope.loadClipsByCategory= function(category){
+//   	console.log('category', category);
+//   	Clips.loadClipsByCategory(category);
+//   };
 
-}]);
+// }]);
 
+//commented out for changes
 
 
 

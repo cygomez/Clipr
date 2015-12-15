@@ -9,7 +9,6 @@ angular
         'ngTouch',
         'clipr.services',
         'clipr.clipped',
-        'clipr.sidebar',
         'clipr.suggested',
         'clipr.categories',
         'xeditable',

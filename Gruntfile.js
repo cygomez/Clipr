@@ -196,7 +196,15 @@ module.exports = function(grunt) {
           'app/*.html'
         ],
         tasks: [
-          'build'
+          'clean',
+          'jshint',
+          'csslint',
+          'copy',
+          'concat',
+          'uglify',
+          'cssmin',
+          'imagemin',
+          'processhtml'
         ]
       }
     },
@@ -222,7 +230,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dev', ['build']);
   grunt.registerTask('server', ['express', 'open', 'watch']);
   grunt.registerTask('build', ['clean', 'jshint', 'csslint', 'copy',
-    'concat', 'uglify', 'cssmin', 'imagemin', 'processhtml', 'server']);
+    'concat', 'uglify', 'cssmin', 'imagemin', 'processhtml']);
   // Open app in new browser window
   grunt.registerTask('view', function () {
     grunt.task.run([ 'shell:view' ]);
