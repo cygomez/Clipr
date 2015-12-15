@@ -9,8 +9,6 @@ angular
         'ngTouch',
         'clipr.services',
         'clipr.clipped',
-        'clipr.sidebar',
-        'clipr.suggested',
         'clipr.categories',
         'xeditable',
         'ngDragDrop'
@@ -29,6 +27,7 @@ angular
     //authentication
   }])
 
+//Configure routes for each state of the application
 .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/clips');
@@ -71,4 +70,4 @@ angular
       }
     });
 
-}])
+}]);
