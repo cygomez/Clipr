@@ -85,14 +85,14 @@ module.exports = function(grunt) {
           dest: 'app/dist/fonts/',
           filter: 'isFile'
         }]
-      }, 
+      },
       movie:{
         files:[{
           expand: true,
           flatten: true,
           src:[
           'app/assets/images/clipVideo_compressed.mp4'
-          ], 
+          ],
           dest:'app/dist/mov',
           filter:'isFile'
         }]
@@ -184,93 +184,52 @@ module.exports = function(grunt) {
         }
       }
     },
-
-    // Watches back-end files for changes, restarts the server
-    express: {
-      all: {
-        options: {
-          port: 3000,
-          hostname: "0.0.0.0",
-          // bases denotes where it will look for files
-          // replace w/ dir you want files served from
-          bases: ['app/'],
-          livereload: true
-        }
-      }
-    },
-
-    // grunt-open will open your browser at the projects URL
-    open: {
-      all: {
-        // Gets the port from the connect configuration
-        path: 'http://localhost:3000/#/clips'
-      }
-    },
-
-    // Watches for front-end file changes and reruns tasks as needed
-    // Just leave "grunt watch" running in background terminal
+    //Watches for changes in any javascript files, and builds
     watch: {
-      options: {
-        livereload: true
-      },
+      scripts: {
+        files: [
+          'app/**/*.js',
+          '!app/bower_components/**/*js',
+          '!/app/dist/**/*js',
+          'app/**/*.html',
+          'app/*.js',
+          'app/*.html'
+        ],
+        tasks: [
+          'build'
+        ]
+      }
+    },
 
-      // When Gruntfile changes, we just want to lint it. When the Gruntfile changes, it will automatically reload!
-      gruntfile: {
-        files: 'Gruntfile.js',
-        tasks: ['jshint'],
+    //Shell command to start the server and
+    shell: {
+      view: {
+        command: 'open http://localhost:3000/',
         options: {
-          livereload: false
+            execOptions: {
+                maxBuffer: 500 * 1024 // or Infinity
+            }
         }
       },
-
-      // When our Javascript source file changes, want to lint them
-      // and run unit tests
-      jssrc: {
-        files: [
-          'app/*/*.js',
-          '!app/bower_components/**/*.js',
-          'server/**/*.js',
-          'server/server.js',
-          'chrome_ext/**/*.js'
-        ],
-        tasks: ['jshint', 'concat', 'uglify']
-      },
-
-
-      //when the CSS files change, we need to lint and minify
-      css: {
-        files: 'app/styles/*.css',
-        tasks: ['csslint', 'cssmin']
-      },
-
-        //when the HTML files change, we need to compile it
-        //TODO: define 'tasks'
-        // html: {
-        //   files: [
-        //     'app/**/*.html',
-        //     '!app/bower_components/',
-        //     '!app/dist/'
-        //   ],
-        //   tasks: ['htmllint']
-        // }
-
-        //When JavaScript unit test file changes we only need to lint it
-        //and run the unit test. No livereloading
-        //TODO: defined
-        // jsunit: {
-        //   files: ['test/spec/**/*.js'],
-        //   tasks: ['jshint:test', 'karma:unit:run'],
-        //   options: {
-        //     livereload: false
-        //   }
-        // }
-    }
+      server:{
+        command: 'nodemon server/server.js'
+      }
+    },
   });
 
   // Default Tasks
-  grunt.registerTask('default', ['build']);
+  grunt.registerTask('default', ['watch']);
   grunt.registerTask('dev', ['build']);
   grunt.registerTask('server', ['express', 'open', 'watch']);
   grunt.registerTask('build', ['clean', 'jshint', 'csslint', 'copy',
-    'concat', 'uglify', 'cssmin', 'imagemin', 'processhtml']);
+    'concat', 'uglify', 'cssmin', 'imagemin', 'processhtml', 'server']);
+  // Open app in new browser window
+  grunt.registerTask('view', function () {
+    grunt.task.run([ 'shell:view' ]);
+  });
+
+  // Start local server
+  grunt.registerTask('server', function () {
+    grunt.task.run([ 'shell:server' ]);
+  });
 };
