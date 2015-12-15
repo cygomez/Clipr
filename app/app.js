@@ -29,6 +29,7 @@ angular
     //authentication
   }])
 
+//Configure routes for each state of the application
 .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/clips');
@@ -71,4 +72,4 @@ angular
       }
     });
 
-}])
+}]);
