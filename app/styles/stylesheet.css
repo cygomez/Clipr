@@ -1,4 +1,12 @@
-
+    /*body {
+    background-color: white;
+}*/
+    /*body {
+    padding-top: 50px;
+    overflow-y: auto;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}*/
 
     body,
     html {
@@ -74,71 +82,6 @@
         width: 33px;
     }
     /*.editable-wrap{
-=======
-
-body,
-html {
-    width: 100%;
-    height: 100%;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Raleway", "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-}
-
-#clipEdit {
-    width: 250px;
-    height: 500px;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 2;
-}
-
-.fa-pencil-square-o#editButton {
-    position: relative;
-}
-
-#js-navbar-collapse {
-    position: absolute;
-    right: 0;
-}
-
-.btn-twitter {
-    color: #fff;
-    background-color: #55acee;
-    border-color: rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 100px;
-    left: 10px;
-}
-
-.btn-facebook {
-    color: #fff;
-    background-color: #3b5998;
-    border-color: rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 100px;
-    left: 50px;
-}
-
-.btn-social-icon {
-    position: absolute;
-    text-align: left;
-    height: 34px;
-    width: 34px;
-}
-
-
-/*.editable-wrap{
->>>>>>> [fix]: change text on landing page
     width: 250px;
     font-size: 12px;
     overflow: scroll;
@@ -1109,54 +1052,7 @@ table tr:nth-child(even) {
         width: 100%;
         color: #f8f8f8;
         /*    background: url(../images/intro-bg.jpg) no-repeat center center;
-=======
-}
-
-.footer {
-    background-color: #ffffff;
-    bottom: 0;
-    position: fixed;
-    padding: 10px;
-}
-
-
-/*---------------------START OF LANDING PAGE CSS----------------*/
-
-.fa-chrome {
-
-}
-
-.fa-google-plus-square {
-    color: #D64837;
-}
-
-.topnav {
-    font-size: 18px;
-    color: white;
-    background-color: #0a2342;
-}
-
-.topnav.navbar-brand {
-    color: white;
-}
-
-a.topnav {
-    color: white;
-}
-
-.lead {
-    font-size: 18px;
-    font-weight: 400;
-}
-
-.intro-header {
-    padding-top: 50px;
-    /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 50px;
-    text-align: center;
-    width: 100%;
-    height: 1000px;
-    color: #f8f8f8;
+*/
     }
 
     .video-container {
