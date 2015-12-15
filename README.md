@@ -33,12 +33,9 @@ Web app and Chrome extension that improves bookmarks through smart categorizatio
 
 ## Install and Run Locally
 
-```
-$ npm install
-$ grunt build
-$ nodemon server/server.js
-$ grunt view
-```
+```$ npm install```
+```$ grunt``` watches for all changes and initiates build task
+```$ grunt server``` in separate tab to start server with nodemon
 
 ## Download Chrome Extension
 
