@@ -1,4 +1,4 @@
-<img src="readmeLogo.png" align="center" />
+<img src="http://i.imgur.com/7e4NuaM.png" align="center" />
 
 ============
 [![Build Status](https://travis-ci.org/BitsPleaseMKS/Clipr.svg?branch=dev)](https://travis-ci.org/BitsPleaseMKS/Clipr)
@@ -7,9 +7,9 @@ Web app and Chrome extension that improves bookmarks through smart categorizatio
 
 ## Site Preview
 
-<img src="readmeExt.png" />
+<img src="http://i.imgur.com/WBhHn0u.png" />
 
-<img src="cliprScreen.png" />
+<img src="http://i.imgur.com/SF30HkA.png" />
 
 ## Table of Contents
 
@@ -25,7 +25,7 @@ Web app and Chrome extension that improves bookmarks through smart categorizatio
 
 ## Features
 
-- Automatic categorization of bookmarks
+- Automatic categorization of bookmarks using naive bayes classifier
 - Visualization of bookmarks with preview images
 - Recommendations of related content for each bookmark
 
@@ -33,13 +33,21 @@ Web app and Chrome extension that improves bookmarks through smart categorizatio
 
 ## Install and Run Locally
 
-```$ npm install```
-```$ grunt``` watches for all changes and initiates build task
-```$ grunt server``` in separate tab to start server with nodemon
+```
+$ npm install
+```
+```
+$ grunt
+```
+watches for all changes and initiates build task
+```
+$ grunt server
+```
+in separate tab to start server with nodemon
 
 ## Download Chrome Extension
 
-<a href="https://chrome.google.com/webstore/detail/ccgfgdnpcafmblafaojcahhjedhbnjal" target="_blank"><img src="readmeChromeExt.png" /></a>
+<a href="https://chrome.google.com/webstore/detail/ccgfgdnpcafmblafaojcahhjedhbnjal" target="_blank"><img src="http://i.imgur.com/Sgo40AL.png" /></a>
 
 ## Built With
 
@@ -64,6 +72,7 @@ Web app and Chrome extension that improves bookmarks through smart categorizatio
 3. Add and Commit your changes (`git add 'new feature file'`)(`git commit -m 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+6. We look forward to hearing from you!
 
 ## Demo
 
