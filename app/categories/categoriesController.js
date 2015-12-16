@@ -6,8 +6,8 @@ angular.module('clipr.categories', [])
 
   $scope.loadClipsByCategory = function(category) {
     Clips.loadClipsByCategory(category);
-    $state.go('main')
-  }
+    $state.go('main');
+  };
 
   $scope.loadAllClips = function() {
    Clips.loadAllClips($cookies.get('clipr'));
@@ -15,10 +15,9 @@ angular.module('clipr.categories', [])
 
   $scope.navToClips = function() {
    Clips.loadAllClips($cookies.get('clipr'));
-   $state.go('main')
+   $state.go('main');
  };
-
 
   $scope.loadAllClips();
 
-}])
+}]);
